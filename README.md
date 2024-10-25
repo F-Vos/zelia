@@ -1,4 +1,4 @@
-# Zelia - Neural Network Chess Computer
+# Zelia - A Neural Network Chess Computer
 
 Zelia is a chess computer powered by a neural network designed to play chess at a competitive level. I want to make use of the Monte Carlo tree search (MCTS) search algorithm.
 
