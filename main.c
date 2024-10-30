@@ -7,7 +7,7 @@
 #define HIDDEN_SIZE 128 // Number of neurons in the hidden layer
 #define HIDDEN_LAYER_SIZE 6 // Number of hidden layers
 #define OUTPUT_SIZE 4084  // Number of output neurons
-						  //
+
 #define DATASET_SIZE 100000 // File count of the dataset
 #define DATASET_DIR ""
 #define BATCH_SIZE 32 // Stochatic batch
