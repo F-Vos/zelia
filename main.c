@@ -1,79 +1,81 @@
-#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdint.h>
 
-typedef uint64_t Bitboard;
+#define INPUT_SIZE 784  // Number of input neurons
+#define HIDDEN_SIZE 128 // Number of neurons in the hidden layer
+#define HIDDEN_LAYER_SIZE 6 // Number of hidden layers
+#define OUTPUT_SIZE 4084  // Number of output neurons
+						  //
+#define DATASET_SIZE 100000 // File count of the dataset
+#define DATASET_DIR ""
+#define BATCH_SIZE 32 // Stochatic batch
+#define NUM_EPOCHS 1000
+#define LEARNING_RATE 0.01
 
-// Define characters for each piece type
-#define WHITE_PAWN   "P"
-#define WHITE_ROOK   "R"
-#define WHITE_BISHOP "B"
-#define WHITE_KNIGHT "N"
-#define WHITE_QUEEN  "Q"
-#define WHITE_KING   "K"
+// Load batch into memory
 
-#define BLACK_PAWN   "p"
-#define BLACK_ROOK   "r"
-#define BLACK_BISHOP "b"
-#define BLACK_KNIGHT "n"
-#define BLACK_QUEEN  "q"
-#define BLACK_KING   "k"
+// Defining the network
+double input_layer[INPUT_SIZE];
+double hidden_layer[HIDDEN_SIZE];
+double output_layer[OUTPUT_SIZE];
 
-// Define initial positions of the pieces
-Bitboard whitePawns   = 0x000000000000FF00; // Row 2
-Bitboard whiteRooks   = 0x0000000000000081; // A1 and H1
-Bitboard whiteKnights = 0x0000000000000042; // B1 and G1
-Bitboard whiteBishops = 0x0000000000000024; // C1 and F1
-Bitboard whiteQueen   = 0x0000000000000008; // D1
-Bitboard whiteKing    = 0x0000000000000010; // E1
+double hidden_weights[INPUT_SIZE][HIDDEN_SIZE];
+double output_weights[HIDDEN_SIZE][OUTPUT_SIZE];
+double hidden_biases[HIDDEN_SIZE];
+double output_biases[OUTPUT_SIZE];
 
-Bitboard blackPawns   = 0x00FF000000000000; // Row 7
-Bitboard blackRooks   = 0x8100000000000000; // A8 and H8
-Bitboard blackKnights = 0x4200000000000000; // B8 and G8
-Bitboard blackBishops = 0x2400000000000000; // C8 and F8
-Bitboard blackQueen   = 0x0800000000000000; // D8
-Bitboard blackKing    = 0x1000000000000000; // E8
 
-// Function to print the board with all pieces
-void printBoard() {
-    for (int rank = 7; rank >= 0; rank--) {
-        for (int file = 0; file < 8; file++) {
-            int square = rank * 8 + file;
-            if ((whitePawns & (1ULL << square)) != 0) {
-                printf(WHITE_PAWN " ");    // Print white pawn
-            } else if ((whiteRooks & (1ULL << square)) != 0) {
-                printf(WHITE_ROOK " ");    // Print white rook
-            } else if ((whiteKnights & (1ULL << square)) != 0) {
-                printf(WHITE_KNIGHT " ");  // Print white knight
-            } else if ((whiteBishops & (1ULL << square)) != 0) {
-                printf(WHITE_BISHOP " ");   // Print white bishop
-            } else if ((whiteQueen & (1ULL << square)) != 0) {
-                printf(WHITE_QUEEN " ");    // Print white queen
-            } else if ((whiteKing & (1ULL << square)) != 0) {
-                printf(WHITE_KING " ");     // Print white king
-            } else if ((blackPawns & (1ULL << square)) != 0) {
-                printf(BLACK_PAWN " ");      // Print black pawn
-            } else if ((blackRooks & (1ULL << square)) != 0) {
-                printf(BLACK_ROOK " ");      // Print black rook
-            } else if ((blackKnights & (1ULL << square)) != 0) {
-                printf(BLACK_KNIGHT " ");    // Print black knight
-            } else if ((blackBishops & (1ULL << square)) != 0) {
-                printf(BLACK_BISHOP " ");     // Print black bishop
-            } else if ((blackQueen & (1ULL << square)) != 0) {
-                printf(BLACK_QUEEN " ");      // Print black queen
-            } else if ((blackKing & (1ULL << square)) != 0) {
-                printf(BLACK_KING " ");       // Print black king
-            } else {
-                printf(". ");                  // Empty square
-            }
-        }
-        printf("\n"); // New line for each rank
-    }
-    printf("\n");
+// Sigmoid function
+//double sigmoid(double x) { return 1.0 / (1.0 + exp(-x)); }
+//double dSigmoid(double x) { return x * (1 - x); }
+//double dSigmoid(double x) {
+//	return sigmoid(x) * (1.0 - sigmoid(x));
+//}
+
+// Initialize the neural network (random values)
+void initialize_network(){
+	for(int i=0; i < INPUT_SIZE; i++){
+		for(int j=0; j < HIDDEN_SIZE; j++){
+			hidden_weights[i][j] = (double)rand() / RAND_MAX;
+		}
+	}
+	for(int i=0; i < HIDDEN_SIZE; i++){
+		for(int j=0; j < OUTPUT_SIZE; j++){
+			output_weights[i][j] = (double)rand() / RAND_MAX;
+		}
+		hidden_biases[i] = (double)rand() / RAND_MAX;
+	}
+	for(int i=0; i < OUTPUT_SIZE; i++){
+		output_biases[i] = (double)rand() / RAND_MAX;
+	}
 }
 
+
+void load_batch() {
+	// Load dataset*batchsize
+}
+
+
+void forward_propagation(int index) {
+	// Input layer propagation
+	// Hidden layer propagation
+	// Output layer propagation
+}
+
+
+
+void backward_propagation(int index) {
+    // Calculate deltas for the output layer
+    // Calculate deltas for the hidden layer
+    // Update output layer weights and biases
+    // Update hidden layer weights and biases
+}
+
+
 int main() {
-    printf("Board:\n");
-    printBoard();
+	initialize_network();
     return 0;
 }
 
