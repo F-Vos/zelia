@@ -1,24 +1,50 @@
-# Zelia - A Neural Network Chess Computer
+# Zelia: An Evolutionary Neural Network Ecosystem
 
-Zelia is a chess computer powered by a neural network designed to play chess at a competitive level. I want to make use of the Monte Carlo tree search (MCTS) search algorithm.
+*Welcome to Zelia a monster that eats NN's*
 
-## Features
+![img](https://preview.redd.it/eating-planet-v0-ks3kpr0yjkxb1.png?width=1024&format=png&auto=webp&s=9240548e9e7558f42fb143dbf0c5c7241478a69f)
 
-- **UCI communication**: Uses a neural network to evaluate chess positions and suggest moves.
-- **Bitboard output**: Adjusts the AI's strength based on user preferences.
+*Zelia* is an experimental AI system that autonomously explores neural network architectures through an evolutionary process of creation, evaluation, and adaptation. By applying principles of genetic algorithms and selective pressure, Zelia continuously generates, tests, and refines networks to evolve increasingly capable models.
 
-## Getting Started
 
-### Prerequisites
+---
 
-Before you begin, ensure you have the following installed:
+## Overview
 
-- **C Compiler**: GCC, Clang, or any other C compiler.
-- **CMake**: For building the project.
+Zelia is structured as an autonomous neural network ecosystem, where three primary components work in tandem to evolve architectures over time:
 
-### Installation
+1. **The Chef**: Generates networks with randomized configurations and parameters.
+2. **The Yelper**: Tests each network’s capabilities on basic logic tasks, retaining only the best performers.
+3. **The Snacks**: Unique neural network models that adapt, compete, and refine toward optimized configurations.
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/F-Vos/zelia.git
-   cd zelia
+---
+
+## Project Structure
+
+### 1. The Chef 
+
+The Architect generates new neural networks with diverse configurations. These include the following components:
+
+   - **Activation Functions**: ReLU, Sigmoid, Tanh, Leaky ReLU.
+   - **Optimization Techniques**: Variations in optimizers, such as SGD, Adam, and RMSprop, enable a broad search for optimal convergence paths.
+   - **Network Depth and Layer Architecture**: Networks are instantiated with differing numbers of layers and neuron counts to explore both shallow and deep models.
+
+### 2. The Yelper
+
+Does the tests and discards the weakest links.
+
+### 3. The Snacks
+
+The neural networks
+
+---
+
+## Evolutionary Cycle
+
+Zelia operates on a continuous, autonomous evolutionary cycle:
+
+1. **Initialization**: The Chef creates an initial generation of Neophytes, each with randomly assigned configurations.
+2. **Evaluation**: The Yelper assigns a series of logic gate problems to each Neophyte and evaluates their performance on accuracy and efficiency metrics.
+3. **Selection**: Tasty *Snacks* are retained, while weaker models are discarded. High-performance networks influence the architecture of the next generation.
+4. **Iteration**: The cycle repeats, with each generation evolving based on selective pressure applied by the Yelper.
+
